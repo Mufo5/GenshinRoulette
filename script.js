@@ -1,7 +1,7 @@
 const characters = {
     "Albedo": {
         image: "https://uploadstatic-sea.mihoyo.com/contentweb/20201204/2020120419111276595.png",
-        video: "https://www.youtube.com/embed/Jy3Y3Rpml3A" // URL d'intégration YouTube
+        video: "https://www.youtube.com/embed/Jy3Y3Rpml3A"
     },
     "Amber": {
         image: "https://uploadstatic-sea.mihoyo.com/contentweb/20200928/2020092819462155694.png",
@@ -10,10 +10,24 @@ const characters = {
     // Ajoutez ici d'autres personnages selon vos préférences
 };
 
-function selectRandomCharacter() {
-    // Récupérer les personnages sélectionnés
-    const selectedCharacters = Array.from(document.querySelectorAll('input[name="character"]:checked')).map(input => input.value);
+let selectedCharacters = [];
 
+function toggleCharacterSelection(characterName) {
+    const portraitElement = document.querySelector(`[data-character="${characterName}"]`);
+    const index = selectedCharacters.indexOf(characterName);
+
+    if (index === -1) {
+        // Sélectionner le personnage
+        selectedCharacters.push(characterName);
+        portraitElement.classList.add('selected');
+    } else {
+        // Désélectionner le personnage
+        selectedCharacters.splice(index, 1);
+        portraitElement.classList.remove('selected');
+    }
+}
+
+function selectRandomCharacter() {
     if (selectedCharacters.length === 0) {
         alert("Veuillez sélectionner au moins un personnage.");
         return;
