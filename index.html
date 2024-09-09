@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genshin Impact Roulette</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Genshin Impact Roulette</h1>
+    
+    <div class="selection-container">
+        <h2>Choisissez les personnages que vous possédez :</h2>
+        <form id="character-form">
+            <div>
+                <input type="checkbox" id="albedo" name="character" value="Albedo">
+                <label for="albedo">Albedo</label>
+            </div>
+            <div>
+                <input type="checkbox" id="amber" name="character" value="Amber">
+                <label for="amber">Amber</label>
+            </div>
+            <!-- Ajoutez ici d'autres personnages selon vos préférences -->
+            <button type="button" onclick="selectRandomCharacter()">Lancer la roulette</button>
+        </form>
+    </div>
+
+    <div class="result-container" id="result-container" style="display: none;">
+        <h2>Personnage sélectionné :</h2>
+        <img id="character-image" alt="Image du personnage sélectionné">
+        <video id="character-video" controls></video>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
